@@ -1,0 +1,147 @@
+body {
+  background-image: url('images/sun-shining-dark-clouds-green-field.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100vh;
+  overflow: hidden;
+}
+nav {
+  display: flex;
+  align-items: center;
+  justify-content:space-around;
+  /* background-color: rgba(238, 93, 93, 0.7);
+  border-radius: 15px; */
+}
+
+h1{
+  font-size: xx-large;
+  font-weight: bolder;
+  color:bisque;
+  text-shadow: 55px;
+}
+
+.search {
+  background: none;
+  border: none;
+}
+
+input[type="search"]::-webkit-search-cancel-button {
+  -webkit-appearance: none;
+}
+
+#search-icon {
+  width: 18px;
+  height: auto;
+  background:none;
+  position: absolute;
+  transform: translateY(-80%);
+  right: 30px;
+
+}
+
+.location1 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.location-icon {
+  width: 25px;
+  height: auto;
+}
+
+#location-name {
+  border: none;
+  background: none;
+  color: aliceblue;
+  font-size: medium;
+}
+
+#search {
+  width: 25rem;
+  height: 2.5rem;
+  border: none;
+  border-radius: 25px;
+  text-align: center;
+  color: aliceblue;
+  outline-style: none;
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+#search::placeholder {
+  color: aliceblue;
+}
+
+section {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 2.5rem;
+
+}
+
+.city-section, .temp-section{
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+  border: none;
+  border-radius: 15px;
+  backdrop-filter: blur(100px);
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+}
+
+#highlow {
+  text-align: center;
+}
+
+.city-name {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+#city, #temp{
+  font-size: 50px;
+  font-weight: bolder;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: aliceblue;
+}
+
+#time, #weatherConditionIcon, #highlow {
+  font-size: large;
+  color: aliceblue;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  text-transform: capitalize;
+}
+
+@media only screen and (max-width: 600px) {
+  /* Styles for screens smaller than 600px (e.g., smartphones) */
+  body {
+      background-size: cover;
+      height: 200vh;
+  }
+
+  nav {
+    flex-wrap: wrap;
+  }
+
+  #search-icon {
+    right: 25px;
+    bottom: 2px;
+  }
+
+  #search {
+    width: 250px;
+  }
+
+  #location-name {
+    width: 100px;
+  }
+
+  section {
+    display: flex;
+    flex-direction: column;
+  }
+
+
+}
