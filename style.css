@@ -107,11 +107,25 @@ section {
   color: aliceblue;
 }
 
-#time, #weatherConditionIcon, #highlow {
+#time, #highlow {
   font-size: large;
   color: aliceblue;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   text-transform: capitalize;
+}
+
+#weatherConditionIcon {
+  width: 50px;
+  height: auto;
+}
+
+.weatherStatus {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-transform: capitalize;
+  color: aliceblue;
+  font-size: large;
 }
 
 @media only screen and (max-width: 600px) {
