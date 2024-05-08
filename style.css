@@ -171,8 +171,9 @@ section {
 @media only screen and (max-width: 1000px) {
   /* Styles for screens smaller than 600px (e.g., smartphones) */
   body {
-      background-size: cover;
-      height: 200vh;
+      background-size: auto;
+      height: 100vh;
+      overflow: auto;
   }
 
   nav {
@@ -270,7 +271,7 @@ section {
     font-size: 25px;
   }
 
-  .forecast {
+  .forecast, .cast1, .cast2{
     flex-direction:column;
   }
 
