@@ -14,15 +14,14 @@ updateTime();
 
 //Weather
 const getCityWeather = (city) => {
-  const apiKey = '5a16d87799c7b0cadfcb63ba6d84419c';
-  const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`;
-  const apiForecast = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}`;
+const apiKey = '5a16d87799c7b0cadfcb63ba6d84419c';
+const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`;
 
-  document.getElementById('city1').textContent = city;
+document.getElementById('city1').textContent = city;
 
-  fetch(apiUrl)
-    .then(response => response.json())
-    .then(data => {
+fetch(apiUrl)
+  .then(response => response.json())
+  .then(data => {
 
     // Weather Info
     const weatherInfo = `${Math.round(data.main.temp - 273.15)}°C`;
@@ -48,59 +47,23 @@ const getCityWeather = (city) => {
 
   })
   .catch(error => console.log('Error fetching weather data:', error));
-  
-  //Forecast
-  fetch(apiForecast)
-  .then(response => response.json())
-  .then(data => {
-    // Extract the forecast entries from the data
-    const forecastEntries = data.list;
-
-    // Iterate over each forecast entry and populate the corresponding div element
-    forecastEntries.forEach((entry, index) => {
-      const forecastDate = new Date(entry.dt * 1000).toLocaleDateString(); // Convert timestamp to local date string
-      console.log(forecastDate);
-      const forecastTemperature = entry.main.temp; // Temperature in Kelvin
-      const weatherIcon = entry.weather[0].icon;
-      const iconURL = `http://openweathermap.org/img/wn/${weatherIcon}.png`;
-
-      // Construct the forecast message
-      const forecastMessage = `Date: ${forecastDate}, Temperature: ${forecastTemperature} K`;
-
-      // Populate the forecast message into the corresponding div element
-      const dayElement = document.getElementById(`day${index + 1}`);
-      dayElement.innerText = forecastMessage;
-
-      const iconElement = document.createElement('img');
-      iconElement.src = iconURL;
-      iconElement.alt = 'Weather Icon';
-      // Append the weather icon to the day element
-      dayElement.appendChild(iconElement);
-
-    });
-  
-
-
-  })
-  .catch(error => console.log('Error fetching forecast data:', error));
-
 
   // Add an event listener to the input field for the keypress event
-  document.getElementById('search').addEventListener('keypress', (event) => {
-    // Check if the pressed key is Enter (key code 13)
-    if (event.key === 'Enter') {
-        event.preventDefault();
-        
-        const city = document.getElementById('search').value.trim();
-        
-        if (city !== '') {
-            getCityWeather(city);
-            document.getElementById('search').value = ''; 
-        } else {
-            console.error('City name is empty');
-        }
-    }
-  });
+document.getElementById('search').addEventListener('keypress', (event) => {
+  // Check if the pressed key is Enter (key code 13)
+  if (event.key === 'Enter') {
+      event.preventDefault();
+      
+      const city = document.getElementById('search').value.trim();
+      
+      if (city !== '') {
+          getCityWeather(city);
+          document.getElementById('search').value = ''; 
+      } else {
+          console.error('City name is empty');
+      }
+  }
+});
 
   // Add an event listener to the form for the submit event
   document.getElementById('weather-form').addEventListener('submit', (event) => {
@@ -114,12 +77,3 @@ const getCityWeather = (city) => {
     }
   });
 }
-
-
-
-
-
-
-  
-
-
